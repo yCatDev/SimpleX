@@ -8,11 +8,11 @@ namespace SimpleX
 {
    
     
-    public class Core
+    public class Engine
     {
         #region Basis
 
-        private static Core _instance;
+        private static Engine _instance;
         public GameObjectManager GameObjectManager;
         public TaskManager TaskManager;
         public SceneManager SceneManager;
@@ -42,7 +42,7 @@ namespace SimpleX
             public static Vector2f Center => _Center;
         }*/
         
-        public static Core GetInstance()
+        public static Engine GetInstance()
         {
             if (_instance!=null)
                 return _instance;
@@ -59,7 +59,7 @@ namespace SimpleX
         
         
 
-        public Core(string title, int width = 800, int height = 600, bool IsFullScreen = false)
+        public Engine(string title, int width = 800, int height = 600, bool IsFullScreen = false)
         {
             logger = new Logger();
             logger.LogInfo("-Initializing framework");

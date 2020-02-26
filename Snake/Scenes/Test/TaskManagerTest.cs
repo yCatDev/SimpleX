@@ -23,7 +23,7 @@ namespace Sycles.Scenes.Test
         public IEnumerator Rotate()
         {
             
-            var a = Core.GetInstance().GameObjectManager.Get("sfml_logo");
+            var a = Engine.GetInstance().GameObjectManager.Get("sfml_logo");
             while (a.LocalRotation<360)
             {
                 yield return 0.01f;
@@ -33,7 +33,7 @@ namespace Sycles.Scenes.Test
         
         public IEnumerator Scale()
         {
-            var a = Core.GetInstance().GameObjectManager.Get("sfml_logo");
+            var a = Engine.GetInstance().GameObjectManager.Get("sfml_logo");
             while (a.Scale.X>0)
             {
                 yield return 0.1f;
@@ -41,27 +41,27 @@ namespace Sycles.Scenes.Test
             }
 
             Unload();
-            Core.GetInstance().SceneManager.Get("s2").Run();
+            Engine.GetInstance().SceneManager.Get("s2").Run();
         }
         
         public override void Load()
         {
             logo = new Logo("sfml_logo",new Texture("sfml_logo.png"));
             scene_name = new TextObject("test", "arial.ttf",$"Loaded scene: {name}", 16);
-            var size = Core.GetInstance().GetWindowSize();
+            var size = Engine.GetInstance().GetWindowSize();
             scene_name.LocalPosition = new Vector2f(-size.X/6, -size.Y/5);
             scene_name.SetColor(Color.White);
             RegisterGameObject(logo);
             RegisterGameObject(scene_name);
-            Core.GetInstance().TaskManager.AddTask(Rotate);
-            Core.GetInstance().TaskManager.AddTask(Scale);
+            Engine.GetInstance().TaskManager.AddTask(Rotate);
+            Engine.GetInstance().TaskManager.AddTask(Scale);
             //Core.GetInstance().Camera.SetFollowTarget(logo.GetGlobalPosition());
             base.Load();
         }
 
         public override void Run()
         {
-            Core.GetInstance().TaskManager.Run();
+            Engine.GetInstance().TaskManager.Run();
             base.Run();
             //_taskManager.Run();
         }

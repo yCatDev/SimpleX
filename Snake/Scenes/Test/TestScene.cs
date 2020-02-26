@@ -18,7 +18,7 @@ namespace Sycles.Scenes.Test
         public override void Load()
         {
             scene_name = new TextObject("test", "arial.ttf",$"Loaded scene: {name}", 16);
-            var size = Core.GetInstance().GetWindowSize();
+            var size = Engine.GetInstance().GetWindowSize();
             scene_name.LocalPosition = new Vector2f(-size.X/6, -size.Y/5);
             scene_name.SetColor(Color.White);
             c0 = new Cube("cube0",new Texture("img.png"));
@@ -39,7 +39,7 @@ namespace Sycles.Scenes.Test
             RegisterGameObject(c3);
             RegisterGameObject(c4);
             RegisterGameObject(c5);
-            Core.GetInstance().Camera.SetFollowTarget(c0.GetGlobalPosition());
+            Engine.GetInstance().Camera.SetFollowTarget(c0.GetGlobalPosition());
             base.Load();
         }
 

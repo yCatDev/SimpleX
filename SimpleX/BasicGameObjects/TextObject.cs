@@ -54,7 +54,7 @@ namespace SimpleX.BasicGameObjects
             var bounds = _text.GetGlobalBounds();
             _text.Origin = new Vector2f(bounds.Width/2, bounds.Height/2);
             
-            _parent = Core.GetInstance().World;
+            _parent = Engine.GetInstance().World;
             LocalPosition = _text.Position;
             Scale = _text.Scale;
             

@@ -15,7 +15,7 @@ namespace SimpleX
             view.Viewport = new FloatRect(0.0f, 0.0f, 2.0f, 2.0f);
             view.Center = new Vector2f(win.Size.X*4,win.Size.Y*4);
             view.Zoom(1f);
-            SetFollowTarget(Core.GetInstance().World.Position);
+            SetFollowTarget(Engine.GetInstance().World.Position);
         }
 
         public void SetFollowTarget(Vector2f taget) => following = taget;

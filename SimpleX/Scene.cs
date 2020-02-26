@@ -25,7 +25,7 @@ namespace SimpleX
 
         public virtual void Unload()
         {
-            Core.GetInstance().GameObjectManager.UnloadScene(GameObjects.ToArray());
+            Engine.GetInstance().GameObjectManager.UnloadScene(GameObjects.ToArray());
             GameObjects.Clear();
         }
 
@@ -37,7 +37,7 @@ namespace SimpleX
 
         public virtual void Run()
         {
-            Core.GetInstance().GameObjectManager.UploadScene(this);
+            Engine.GetInstance().GameObjectManager.UploadScene(this);
             //GameObjects.Clear();
         }
 

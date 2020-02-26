@@ -22,7 +22,7 @@ namespace SimpleX.Managers
             foreach (var obj in _allGameObjects)
             {
                 obj.Update();
-                obj.Draw(Core.GetInstance().GetCurrentWindow());
+                obj.Draw(Engine.GetInstance().GetCurrentWindow());
             }
         }
 

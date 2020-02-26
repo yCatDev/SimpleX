@@ -11,7 +11,7 @@ namespace Sycles.GameObjects.TestStuff
         public float z = 1;
         public Cube(string name, Texture texture) : base(name, texture)
         {
-            Core.GetInstance().logger.LogInfo(name);
+            Engine.GetInstance().logger.LogInfo(name);
             if (name == "cube0")
                 SetColor(Color.Yellow);
             if (name == "cube1")

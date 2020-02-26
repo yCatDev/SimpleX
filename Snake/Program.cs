@@ -10,7 +10,7 @@ namespace Sycles
         
         static void Main(string[] args)
         {
-            var engine = new Core("SimpleX", width: 1000, height:800);
+            var engine = new Engine("SimpleX", width: 1000, height:800);
             
             engine.SceneManager.LoadSceneAndRun(new TaskManagerTest("s1"));
             engine.SceneManager.LoadScene(new TestScene("s2"));

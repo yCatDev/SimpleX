@@ -7,11 +7,10 @@ using SimpleX.Interfaces;
 
 namespace SimpleX
 {
-    public abstract class GameObject
+    public abstract class GameObject: IGameObject
     {
-        private Sprite _sprite;
-        public Guid guid;
-        public string name;
+        public Sprite _sprite;
+        public string Name { get; set; }
         public Transformable _parent;
 
         private Vector2f _localPosition;
@@ -32,7 +31,6 @@ namespace SimpleX
             set
             {
                 _scale = value;
-               // _sprite.Scale = _scale;
             }
         }
 
@@ -42,7 +40,6 @@ namespace SimpleX
             set
             {
                 _localRotation = value;
-               // _sprite.Rotation = _localRotation;
             }
         }
         
@@ -53,21 +50,24 @@ namespace SimpleX
         public GameObject(string name, Texture texture)
         {
             _sprite = new Sprite(texture);
-            _sprite.Origin = new Vector2f(_sprite.TextureRect.Width/2, _sprite.TextureRect.Height/2);
+            
+            var bounds = _sprite.GetGlobalBounds();
+            _sprite.Origin = new Vector2f(bounds.Width/2, bounds.Height/2);
             
             _parent = Core.GetInstance().World;
             LocalPosition = _sprite.Position;
             Scale = _sprite.Scale;
             
-            this.name = name;
-            guid = Guid.NewGuid();
+            Name = name;
         }
 
         public virtual void Start()
         {
             
         }
+
         
+
         public virtual void Update()
         {
             

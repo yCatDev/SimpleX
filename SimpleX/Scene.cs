@@ -8,13 +8,13 @@ namespace SimpleX
 {
     public abstract class Scene: IScene
     {
-        private List<GameObject> GameObjects;
+        private List<IGameObject> GameObjects;
         public string name;
         
         public Scene(string name)
         {
             this.name = name;
-            GameObjects = new List<GameObject>();
+            GameObjects = new List<IGameObject>();
         }
 
         
@@ -41,10 +41,14 @@ namespace SimpleX
             //GameObjects.Clear();
         }
 
-        public List<GameObject> GetSceneGameObjects() => GameObjects;
-        
-        public void RegisterGameObject(GameObject gameObject)
-            => GameObjects.Add(gameObject);
+        public List<IGameObject> GetSceneGameObjects() => GameObjects;
+
+        public void RegisterGameObject(IGameObject gameObject)
+        {
+            gameObject.Start();
+            GameObjects.Add(gameObject);
+            
+        }
 
     }
 }

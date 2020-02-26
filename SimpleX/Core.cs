@@ -1,12 +1,8 @@
-﻿using NLua;
-using System;
-using System.Collections.Generic;
-using SFML.System;
+﻿using System;
 using SFML.Graphics;
+using SFML.System;
 using SFML.Window;
-using SimpleX.BasicGameObjects;
 using SimpleX.Managers;
-
 
 namespace SimpleX
 {
@@ -21,15 +17,36 @@ namespace SimpleX
         public TaskManager TaskManager;
         public SceneManager SceneManager;
         public Transformable World;
+
+        /*public static class WindowsPositions
+        {
+            internal static void Calcualte(RenderWindow window, Camera camera)
+            {
+                var size = new Vector2f(window.GetViewport(camera.GetView()).Width,
+                    window.GetViewport(camera.GetView()).Height);
+                _Center = new Vector2f(0, 0);
+                _TopLeft = new Vector2f(-size.X/2);
+            }
+
+            private static Vector2f _TopLeft, _TopRight, _BottomLeft, _BottomRight, _Center;
+
+
+            public static Vector2f TopLeft => _TopLeft;
+
+            public static Vector2f TopRight => _TopRight;
+
+            public static Vector2f BottomLeft => _BottomLeft;
+
+            public static Vector2f BottomRight => _BottomRight;
+
+            public static Vector2f Center => _Center;
+        }*/
         
         public static Core GetInstance()
         {
             if (_instance!=null)
                 return _instance;
-            else
-            {
-                throw new Exception("Core not initialized. Fatal error");
-            }
+            throw new Exception("Core not initialized. Fatal error");
         }
         
 
@@ -79,6 +96,7 @@ namespace SimpleX
         }
         
         public RenderWindow GetCurrentWindow() => _window;
+        public Vector2f GetWindowSize() => new Vector2f(_window.Size.X, _window.Size.Y);
         
         public void Quit()
         {

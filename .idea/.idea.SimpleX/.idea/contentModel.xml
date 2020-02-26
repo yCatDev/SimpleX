@@ -7,6 +7,8 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="SimpleX" t="IncludeRecursive">
         <e p="BasicGameObjects" t="Include">
+          <e p="GameObject.cs" t="Include" />
+          <e p="TextObject.cs" t="Include" />
           <e p="World.cs" t="Include" />
         </e>
         <e p="BasicSystems" t="Include">
@@ -14,11 +16,12 @@
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Camera.cs" t="Include" />
+        <e p="Components" t="Include" />
         <e p="Core.cs" t="Include" />
         <e p="Coroutines.cs" t="Include" />
-        <e p="GameObject.cs" t="Include" />
         <e p="GameSystem.cs" t="Include" />
         <e p="Interfaces" t="Include">
+          <e p="IGameObject.cs" t="Include" />
           <e p="IScene.cs" t="Include" />
           <e p="ITransformable.cs" t="Include" />
         </e>

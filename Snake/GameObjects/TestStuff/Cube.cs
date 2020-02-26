@@ -25,13 +25,13 @@ namespace Sycles.GameObjects.TestStuff
 
         public override void Update()
         {
-            if (name == "cube0")
+            if (Name == "cube0")
             {
                 LocalRotation+=50;
      
             }
             
-            if (name == "cube1" || name == "cube0")
+            if (Name == "cube1" || Name == "cube0")
             {
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
                     base.LocalPosition = new Vector2f(LocalPosition.X + 1f, LocalPosition.Y);
@@ -42,9 +42,9 @@ namespace Sycles.GameObjects.TestStuff
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
                     base.LocalPosition = new Vector2f(LocalPosition.X, LocalPosition.Y-1);
             }
-            if (name=="cube1")
+            if (Name=="cube1")
                 Rotate(0.5f);
-            if (name == "cube2")
+            if (Name == "cube2")
             {
                 if (Keyboard.IsKeyPressed(Keyboard.Key.D))
                     base.LocalPosition = new Vector2f(LocalPosition.X + 1f, LocalPosition.Y);
@@ -59,7 +59,7 @@ namespace Sycles.GameObjects.TestStuff
                     Rotate(2f);
             }
             
-            if (name == "cube3")
+            if (Name == "cube3")
             {
                 if (Keyboard.IsKeyPressed(Keyboard.Key.A))
                     base.LocalPosition = new Vector2f(LocalPosition.X + 1f, LocalPosition.Y);
@@ -74,7 +74,7 @@ namespace Sycles.GameObjects.TestStuff
                     Rotate(2f);
             }
             
-            if (name == "cube4")
+            if (Name == "cube4")
             {
                 LocalRotation += 10f;
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Q))
@@ -84,7 +84,7 @@ namespace Sycles.GameObjects.TestStuff
                 
                     Rotate(-5f);
             }
-            if (name == "cube5")
+            if (Name == "cube5")
             {
                 LocalRotation -= 10f;
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Q))

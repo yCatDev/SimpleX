@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using SFML.Graphics;
 using SimpleX.Coroutines;
+using SimpleX.Interfaces;
 
 namespace SimpleX.Managers
 {
     public class GameObjectManager
     {
-        private List<GameObject> _allGameObjects;
+        private List<IGameObject> _allGameObjects;
         
         public GameObjectManager()
         {
-            _allGameObjects = new List<GameObject>();
+            _allGameObjects = new List<IGameObject>();
 
         }
         
@@ -33,7 +34,7 @@ namespace SimpleX.Managers
             //    _allGameObjects[i].Start();
         }
 
-        public void UnloadScene(GameObject[] objs)
+        public void UnloadScene(IGameObject[] objs)
         {
             foreach (var item in objs)
             {
@@ -41,7 +42,7 @@ namespace SimpleX.Managers
             }
         }
         
-        public GameObject Get(string name) => _allGameObjects.Find((x) => x.name == name);
+        public IGameObject Get(string name) => _allGameObjects.Find((x) => x.Name == name);
         
     }
 }

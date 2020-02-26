@@ -1,5 +1,7 @@
 ﻿using SFML.Graphics;
+using SFML.System;
 using SimpleX;
+using SimpleX.BasicGameObjects;
 using SimpleX.Interfaces;
 using Sycles.GameObjects.TestStuff;
 
@@ -15,6 +17,10 @@ namespace Sycles.Scenes.Test
 
         public override void Load()
         {
+            scene_name = new TextObject("test", "arial.ttf",$"Loaded scene: {name}", 16);
+            var size = Core.GetInstance().GetWindowSize();
+            scene_name.LocalPosition = new Vector2f(-size.X/6, -size.Y/5);
+            scene_name.SetColor(Color.White);
             c0 = new Cube("cube0",new Texture("img.png"));
             c1 = new Cube("cube1",new Texture("img.png"));
             c2 = new Cube("cube2",new Texture("imgSmall.png"));
@@ -26,6 +32,7 @@ namespace Sycles.Scenes.Test
             c3.SetParent(c1);
             c4.SetParent(c2);
             c5.SetParent(c3);
+            RegisterGameObject(scene_name);
             RegisterGameObject(c0);
             RegisterGameObject(c1);
             RegisterGameObject(c2);
@@ -35,5 +42,7 @@ namespace Sycles.Scenes.Test
             Core.GetInstance().Camera.SetFollowTarget(c0.GetGlobalPosition());
             base.Load();
         }
+
+        public TextObject scene_name { get; set; }
     }
 }

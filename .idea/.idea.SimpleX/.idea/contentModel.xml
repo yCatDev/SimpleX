@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\yCatDev\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\yCatDev\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_SimpleX.-910755895.00" t="ExcludeRecursive" />
+    <e p="E:\CS\SimpleX\SimpleX" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="SimpleX" t="IncludeRecursive">
+        <e p="BasicGameObjects" t="Include">
+          <e p="World.cs" t="Include" />
+        </e>
+        <e p="BasicSystems" t="Include">
+          <e p="Sprite.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Camera.cs" t="Include" />
+        <e p="Core.cs" t="Include" />
+        <e p="Coroutines.cs" t="Include" />
+        <e p="GameObject.cs" t="Include" />
+        <e p="GameSystem.cs" t="Include" />
+        <e p="Interfaces" t="Include">
+          <e p="IScene.cs" t="Include" />
+          <e p="ITransformable.cs" t="Include" />
+        </e>
+        <e p="Logger.cs" t="Include" />
+        <e p="Managers" t="Include">
+          <e p="GameObjects.cs" t="Include" />
+          <e p="SceneManager.cs" t="Include" />
+          <e p="TaskManager.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="SimpleX.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scene.cs" t="Include" />
+        <e p="SimpleX.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="SimpleX.sln" t="IncludeFlat" />
+      <e p="Snake" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="GameObjects" t="Include">
+          <e p="TestStuff" t="Include">
+            <e p="Cube.cs" t="Include" />
+            <e p="Logo.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Snake.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Scenes" t="Include">
+          <e p="Test" t="Include">
+            <e p="GameObjects" t="Include" />
+            <e p="TaskManagerTest.cs" t="Include" />
+            <e p="TestScene.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Snake.csproj" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

@@ -17,8 +17,8 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Camera.cs" t="Include" />
         <e p="Components" t="Include" />
-        <e p="Core.cs" t="Include" />
         <e p="Coroutines.cs" t="Include" />
+        <e p="Engine.cs" t="Include" />
         <e p="GameSystem.cs" t="Include" />
         <e p="Interfaces" t="Include">
           <e p="IGameObject.cs" t="Include" />

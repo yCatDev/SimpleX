@@ -4,18 +4,22 @@ using SFML.System;
 using SFML.Window;
 using SimpleX.Managers;
 
+
 namespace SimpleX
 {
-   
+
     
     public class Engine
     {
         #region Basis
 
         private static Engine _instance;
+        
         public GameObjectManager GameObjectManager;
         public TaskManager TaskManager;
         public SceneManager SceneManager;
+        public AudioManager AudioManager;
+        
         public Transformable World;
 
         /*public static class WindowsPositions
@@ -78,6 +82,7 @@ namespace SimpleX
             GameObjectManager = new GameObjectManager();
             TaskManager = new TaskManager();
             SceneManager = new SceneManager();
+            AudioManager = new AudioManager();
 
             logger.LogInfo("-Initialized successful");
         }
@@ -89,8 +94,11 @@ namespace SimpleX
                 _window.DispatchEvents();
                 _window.Clear(Color.Black);
                 Camera.FollowTarget(_window);
+                
                 GameObjectManager.Update();
                 TaskManager.Update();
+                AudioManager.Update();
+                
                 _window.Display();
             }
         }

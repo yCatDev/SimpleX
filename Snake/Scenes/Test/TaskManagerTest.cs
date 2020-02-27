@@ -48,6 +48,7 @@ namespace Sycles.Scenes.Test
         {
             logo = new Logo("sfml_logo",new Texture("sfml_logo.png"));
             scene_name = new TextObject("test", "arial.ttf",$"Loaded scene: {name}", 16);
+            Engine.GetInstance().AudioManager.PlayMusic("test.ogg");
             var size = Engine.GetInstance().GetWindowSize();
             scene_name.LocalPosition = new Vector2f(-size.X/6, -size.Y/5);
             scene_name.SetColor(Color.White);

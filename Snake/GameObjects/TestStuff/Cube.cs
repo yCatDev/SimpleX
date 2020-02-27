@@ -3,6 +3,7 @@ using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
 using SimpleX;
+using SimpleX.Managers;
 
 namespace Sycles.GameObjects.TestStuff
 {
@@ -31,6 +32,9 @@ namespace Sycles.GameObjects.TestStuff
      
             }
             
+            if (InputManager.IsMouseDown(InputManager.MouseButton.Left))
+                Engine.GetInstance().AudioManager.PlaySound("sound.wav");
+            
             if (Name == "cube1" || Name == "cube0")
             {
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
@@ -46,13 +50,13 @@ namespace Sycles.GameObjects.TestStuff
                 Rotate(0.5f);
             if (Name == "cube2")
             {
-                if (Keyboard.IsKeyPressed(Keyboard.Key.D))
+                if (InputManager.GetPressedKey(InputManager.KeyCode.D))
                     base.LocalPosition = new Vector2f(LocalPosition.X + 1f, LocalPosition.Y);
-                if (Keyboard.IsKeyPressed(Keyboard.Key.S))
+                if (InputManager.GetPressedKey(InputManager.KeyCode.S))
                     base.LocalPosition = new Vector2f(LocalPosition.X, LocalPosition.Y+1);
-                if (Keyboard.IsKeyPressed(Keyboard.Key.A))
+                if (InputManager.GetPressedKey(InputManager.KeyCode.A))
                     base.LocalPosition = new Vector2f(LocalPosition.X - 1f, LocalPosition.Y);
-                if (Keyboard.IsKeyPressed(Keyboard.Key.W))
+                if (InputManager.GetPressedKey(InputManager.KeyCode.W))
                     base.LocalPosition = new Vector2f(LocalPosition.X, LocalPosition.Y-1);
 
                 //if (Keyboard.IsKeyPressed(Keyboard.Key.R))

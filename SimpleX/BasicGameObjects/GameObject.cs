@@ -12,7 +12,9 @@ namespace SimpleX
         public Sprite _sprite;
         public string Name { get; set; }
         public Transformable _parent;
-
+        public Shader shader;
+        
+        
         private Vector2f _localPosition;
         public Vector2f LocalPosition
         {
@@ -57,7 +59,7 @@ namespace SimpleX
             _parent = Engine.GetInstance().World;
             LocalPosition = _sprite.Position;
             Scale = _sprite.Scale;
-            
+            shader = new Shader(null, null, "shader.frag");
             Name = name;
         }
 
@@ -74,7 +76,6 @@ namespace SimpleX
             _sprite.Position = LocalPosition + _parent.Position;
             _sprite.Rotation = LocalRotation;
             _sprite.Scale = Scale;
-            
         }
 
         public void SetParent(GameObject parent)
@@ -104,10 +105,23 @@ namespace SimpleX
 
 
         public Vector2f GetGlobalPosition() => _sprite.Position;
-        public void SetGlobalPosition(Vector2f newVec) => _sprite.Position = newVec; 
-        
+        public void SetGlobalPosition(Vector2f newVec) => _sprite.Position = newVec;
+
         public void Draw(RenderWindow rw)
-            => rw.Draw(_sprite);
-            
+        {
+            shader.SetUniform("texture", Shader.CurrentTexture);
+            var x = (float)Mouse.GetPosition(rw).X / rw.Size.X;
+            var y = (float)Mouse.GetPosition(rw).Y / rw.Size.Y;
+            shader.SetUniform("pixel_threshold", ( x + y ) / 30);
+            var state = new RenderStates()
+            {
+                Transform = Transform.Identity,
+                BlendMode = BlendMode.Alpha,
+                Shader = this.shader
+            };
+
+            rw.Draw(_sprite, state);
+        }
+
     }
 }

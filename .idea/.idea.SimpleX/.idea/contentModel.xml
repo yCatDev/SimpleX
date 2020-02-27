@@ -6,17 +6,14 @@
     <e p="E:\CS\SimpleX\SimpleX" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="SimpleX" t="IncludeRecursive">
+        <e p="Audio.cs" t="Include" />
         <e p="BasicGameObjects" t="Include">
           <e p="GameObject.cs" t="Include" />
           <e p="TextObject.cs" t="Include" />
           <e p="World.cs" t="Include" />
         </e>
-        <e p="BasicSystems" t="Include">
-          <e p="Sprite.cs" t="Include" />
-        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Camera.cs" t="Include" />
-        <e p="Components" t="Include" />
         <e p="Coroutines.cs" t="Include" />
         <e p="Engine.cs" t="Include" />
         <e p="GameSystem.cs" t="Include" />
@@ -27,7 +24,9 @@
         </e>
         <e p="Logger.cs" t="Include" />
         <e p="Managers" t="Include">
+          <e p="AudioManager.cs" t="Include" />
           <e p="GameObjects.cs" t="Include" />
+          <e p="InputManager.cs" t="Include" />
           <e p="SceneManager.cs" t="Include" />
           <e p="TaskManager.cs" t="Include" />
         </e>
@@ -38,6 +37,7 @@
             </e>
           </e>
         </e>
+        <e p="ResourceFile.cs" t="Include" />
         <e p="Scene.cs" t="Include" />
         <e p="SimpleX.csproj" t="IncludeRecursive" />
       </e>

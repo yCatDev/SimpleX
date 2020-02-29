@@ -390,6 +390,7 @@ namespace SimpleX.Managers
         private static void OnKeyReleased(object? sender, KeyEventArgs e)
         {
             _lastPressedKey = KeyCode.Unknown;
+            _currentPressedKey = _lastPressedKey;
         }
 
         private static void OnMouseButtonPressed(object? sender, MouseButtonEventArgs e)

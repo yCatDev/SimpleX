@@ -112,14 +112,11 @@ namespace SimpleX
         public void Draw(RenderWindow rw)
         {
             shader.SetUniform("texture", Shader.CurrentTexture);
-            //shader.SetUniform("threshold", 1.5f);
-            //var x = (float)Mouse.GetPosition(rw).X / rw.Size.X;
-            //var y = (float)Mouse.GetPosition(rw).Y / rw.Size.Y;
-            //shader.SetUniform("pixel_threshold", ( x + y ) / 30);
+            shader.SetUniform( "textureOffset", 5.5f /  _sprite.TextureRect.Width );
             var state = new RenderStates()
             {
                 Transform = Transform.Identity,
-                BlendMode = BlendMode.None,
+                BlendMode = BlendMode.Add,
                 Shader = this.shader
             };
 

@@ -45,7 +45,7 @@ namespace SimpleX.Managers
             
         }
 
-        public void Update() => _runner.Update(0.1f);
+        public void Update() => _runner.Update(1/Engine.FPS);
 
 
     }

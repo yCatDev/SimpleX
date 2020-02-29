@@ -13,7 +13,7 @@ namespace SimpleX
     {
         #region Basis
 
-        const int FPS = 60;
+        public const int FPS = 60;
         private static Engine _instance;
         
         public GameObjectManager GameObjectManager;
@@ -62,7 +62,7 @@ namespace SimpleX
         private Clock _dt;
         public Logger logger;
         public Camera Camera;
-        
+        private ContextSettings _settings;
         
 
         public Engine(string title, int width = 800, int height = 600, bool IsFullScreen = false)
@@ -70,13 +70,16 @@ namespace SimpleX
             logger = new Logger();
             logger.LogInfo("-Initializing framework");
             
-            _window = new RenderWindow(new VideoMode((uint) width, (uint) height), title, Styles.Close);
+            _settings.AntialiasingLevel = 8;
+            
+            _window = new RenderWindow(new VideoMode((uint) width, (uint) height), title, Styles.Close,_settings);
             _window.SetFramerateLimit(FPS);
             _window.SetVerticalSyncEnabled(true);
             _dt = new Clock();
             _dt.Restart();
             _window.Closed += (sender, e) => Quit();
             _instance = this;
+            
 
             World = new Transformable();
             Camera = new Camera(_window);

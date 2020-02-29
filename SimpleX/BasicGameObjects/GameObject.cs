@@ -14,7 +14,7 @@ namespace SimpleX
         public string Name { get; set; }
         public Transformable _parent;
         public Shader shader;
-        
+        public BlendMode BlendMode;
         
         private Vector2f _localPosition;
         public Vector2f LocalPosition
@@ -61,6 +61,7 @@ namespace SimpleX
             LocalPosition = _sprite.Position;
             Scale = _sprite.Scale;
             shader = new Shader("shader.vert", null, "shader.frag");
+            BlendMode = BlendMode.None;
             Name = name;
         }
 
@@ -112,11 +113,11 @@ namespace SimpleX
         public void Draw(RenderWindow rw)
         {
             shader.SetUniform("texture", Shader.CurrentTexture);
-            shader.SetUniform( "textureOffset", 5.5f /  _sprite.TextureRect.Width );
+            
             var state = new RenderStates()
             {
                 Transform = Transform.Identity,
-                BlendMode = BlendMode.Add,
+                BlendMode = BlendMode,
                 Shader = this.shader
             };
 

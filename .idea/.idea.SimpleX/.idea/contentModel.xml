@@ -42,7 +42,7 @@
         <e p="SimpleX.csproj" t="IncludeRecursive" />
       </e>
       <e p="SimpleX.sln" t="IncludeFlat" />
-      <e p="Snake" t="IncludeRecursive">
+      <e p="TestStuff" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="GameObjects" t="Include">
           <e p="TestStuff" t="Include">
@@ -53,7 +53,7 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="Snake.AssemblyInfo.cs" t="Include" />
+              <e p="TestStuff.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -65,7 +65,7 @@
             <e p="TestScene.cs" t="Include" />
           </e>
         </e>
-        <e p="Snake.csproj" t="IncludeRecursive" />
+        <e p="TestStuff.csproj" t="IncludeRecursive" />
       </e>
     </e>
   </component>

@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleX", "SimpleX\SimpleX.csproj", "{DA24265B-5052-48B8-9347-2348B6C96638}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleX", "Snake\Snake.csproj", "{73797849-C8E0-4724-A92B-2E5F1D29C26A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStuff", "TestStuff\TestStuff.csproj", "{73797849-C8E0-4724-A92B-2E5F1D29C26A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

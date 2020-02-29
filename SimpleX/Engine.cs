@@ -19,7 +19,7 @@ namespace SimpleX
         public TaskManager TaskManager;
         public SceneManager SceneManager;
         public AudioManager AudioManager;
-        
+
         public Transformable World;
 
         /*public static class WindowsPositions
@@ -69,7 +69,8 @@ namespace SimpleX
             logger.LogInfo("-Initializing framework");
             
             _window = new RenderWindow(new VideoMode((uint) width, (uint) height), title, Styles.Close);
-            _window.SetFramerateLimit(60);
+            //_window.SetFramerateLimit(60);
+            _window.SetVerticalSyncEnabled(true);
             _window.Closed += (sender, e) => Quit();
             _instance = this;
 
@@ -79,16 +80,19 @@ namespace SimpleX
             World.Origin = new Vector2f(_window.GetViewport(Camera.GetView()).Width/2,
                 _window.GetViewport(Camera.GetView()).Height/2);
 
+            
             GameObjectManager = new GameObjectManager();
             TaskManager = new TaskManager();
             SceneManager = new SceneManager();
             AudioManager = new AudioManager();
-
+            InputManager.InitManager();
+            
             logger.LogInfo("-Initialized successful");
         }
 
         public void Update()
         {
+            
             while (_window.IsOpen)
             {
                 _window.DispatchEvents();
@@ -99,6 +103,7 @@ namespace SimpleX
                 TaskManager.Update();
                 AudioManager.Update();
                 
+                _window.DispatchEvents();
                 _window.Display();
             }
         }

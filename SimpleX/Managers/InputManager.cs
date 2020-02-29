@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net.Http.Headers;
+using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
 
@@ -365,36 +367,79 @@ namespace SimpleX.Managers
         };
         
         #endregion
+        
+        private static MouseButton _currentPressedMouseButton, _lastPressedMouseButton;
+        private static KeyCode _currentPressedKey, _lastPressedKey;
+        
+        
+        
+        public static void InitManager()
+        {
+            var w = Engine.GetInstance().GetCurrentWindow();
+            w.KeyPressed += OnKeyPressed;
+            w.KeyReleased += OnKeyReleased;
+            w.MouseButtonPressed += OnMouseButtonPressed;
+            w.MouseButtonReleased += OnMouseButtonReleased;
+        }
 
-        private static MouseButton _lastPressedMouseButton;
-        public static bool GetPressedKey(KeyCode keyCode) => 
-            Keyboard.IsKeyPressed(Enum.Parse<Keyboard.Key>(keyCode.ToString()));
+        private static void OnMouseButtonReleased(object? sender, MouseButtonEventArgs e)
+        {
+            _lastPressedMouseButton = MouseButton.Default;
+        }
 
-        public static bool IsMouseDown(MouseButton mouseButton) =>
-            Mouse.IsButtonPressed(Enum.Parse<Mouse.Button>(mouseButton.ToString()));
+        private static void OnKeyReleased(object? sender, KeyEventArgs e)
+        {
+            _lastPressedKey = KeyCode.Unknown;
+        }
+
+        private static void OnMouseButtonPressed(object? sender, MouseButtonEventArgs e)
+        {
+            _lastPressedMouseButton = _currentPressedMouseButton;
+            _currentPressedMouseButton = Enum.Parse<MouseButton>(e.Button.ToString());
+        }
+
+        private static void OnKeyPressed(object? sender, KeyEventArgs e)
+        {
+            _lastPressedKey = _currentPressedKey;
+            _currentPressedKey = Enum.Parse<KeyCode>(e.Code.ToString());
+        }
+
+                
+        public static bool IsKeyPressed(KeyCode keyCode) =>
+            _currentPressedKey == keyCode;
+
+        public static bool IsMousePressed(MouseButton mouseButton) =>
+            _currentPressedMouseButton == mouseButton;
 
         public static bool IsMouseClicked(MouseButton mouseButton)
         {
-            if (Mouse.IsButtonPressed(Enum.Parse<Mouse.Button>(mouseButton.ToString())))
+            if ((_lastPressedMouseButton != _currentPressedMouseButton)
+                && (mouseButton == _currentPressedMouseButton))
             {
-                if (mouseButton != _lastPressedMouseButton)
-                {
-                    _lastPressedMouseButton = mouseButton;
-                    return true;
-                }
-                else
-                {
-                    //_lastPressedMouseButton = MouseButton.Default;
-                    return false;
-                }
+                _lastPressedMouseButton = mouseButton;
+                return true;
             }
             else
             {
-                _lastPressedMouseButton = MouseButton.Default;
                 return false;
             }
         }
 
+        public static bool IsKeyClicked(KeyCode keyCode)
+        {
+            if ((_lastPressedKey != _currentPressedKey)
+                && (keyCode == _currentPressedKey))
+            {
+                _lastPressedKey = keyCode;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        
         public static Vector2i GetMousePosition()
             => Mouse.GetPosition();
 

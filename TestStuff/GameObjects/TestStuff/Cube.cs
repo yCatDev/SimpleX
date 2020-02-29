@@ -32,7 +32,7 @@ namespace Sycles.GameObjects.TestStuff
      
             }
             
-            if (InputManager.IsMouseDown(InputManager.MouseButton.Left))
+            if (InputManager.IsMouseClicked(InputManager.MouseButton.Left))
                 Engine.GetInstance().AudioManager.PlaySound("sound.wav");
             
             if (Name == "cube1" || Name == "cube0")
@@ -50,13 +50,13 @@ namespace Sycles.GameObjects.TestStuff
                 Rotate(0.5f);
             if (Name == "cube2")
             {
-                if (InputManager.GetPressedKey(InputManager.KeyCode.D))
+                if (InputManager.IsKeyPressed(InputManager.KeyCode.D))
                     base.LocalPosition = new Vector2f(LocalPosition.X + 1f, LocalPosition.Y);
-                if (InputManager.GetPressedKey(InputManager.KeyCode.S))
+                if (InputManager.IsKeyPressed(InputManager.KeyCode.S))
                     base.LocalPosition = new Vector2f(LocalPosition.X, LocalPosition.Y+1);
-                if (InputManager.GetPressedKey(InputManager.KeyCode.A))
+                if (InputManager.IsKeyPressed(InputManager.KeyCode.A))
                     base.LocalPosition = new Vector2f(LocalPosition.X - 1f, LocalPosition.Y);
-                if (InputManager.GetPressedKey(InputManager.KeyCode.W))
+                if (InputManager.IsKeyPressed(InputManager.KeyCode.W))
                     base.LocalPosition = new Vector2f(LocalPosition.X, LocalPosition.Y-1);
 
                 //if (Keyboard.IsKeyPressed(Keyboard.Key.R))

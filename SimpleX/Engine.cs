@@ -13,6 +13,7 @@ namespace SimpleX
     {
         #region Basis
 
+        const int FPS = 60;
         private static Engine _instance;
         
         public GameObjectManager GameObjectManager;
@@ -58,6 +59,7 @@ namespace SimpleX
         #region Main
         
         private RenderWindow _window;
+        private Clock _dt;
         public Logger logger;
         public Camera Camera;
         
@@ -69,8 +71,10 @@ namespace SimpleX
             logger.LogInfo("-Initializing framework");
             
             _window = new RenderWindow(new VideoMode((uint) width, (uint) height), title, Styles.Close);
-            //_window.SetFramerateLimit(60);
+            _window.SetFramerateLimit(FPS);
             _window.SetVerticalSyncEnabled(true);
+            _dt = new Clock();
+            _dt.Restart();
             _window.Closed += (sender, e) => Quit();
             _instance = this;
 
@@ -92,19 +96,23 @@ namespace SimpleX
 
         public void Update()
         {
-            
+
             while (_window.IsOpen)
             {
-                _window.DispatchEvents();
-                _window.Clear(Color.Black);
-                Camera.FollowTarget(_window);
-                
-                GameObjectManager.Update();
-                TaskManager.Update();
-                AudioManager.Update();
-                
-                _window.DispatchEvents();
-                _window.Display();
+                if (_dt.ElapsedTime.AsSeconds() > 1/FPS)
+                {
+
+                    _window.DispatchEvents();
+                    _window.Clear(Color.Black);
+                    Camera.FollowTarget(_window);
+
+                    GameObjectManager.Update();
+                    TaskManager.Update();
+                    AudioManager.Update();
+                    
+                    _window.Display();
+                    _dt.Restart();
+                }
             }
         }
         

@@ -60,7 +60,7 @@ namespace SimpleX
             _parent = Engine.GetInstance().World;
             LocalPosition = _sprite.Position;
             Scale = _sprite.Scale;
-            shader = new Shader("shader.vert", null, "shader.frag");
+            shader = new Shader("shader.vert", null, "shader_min.frag");
             BlendMode = BlendMode.None;
             Name = name;
         }

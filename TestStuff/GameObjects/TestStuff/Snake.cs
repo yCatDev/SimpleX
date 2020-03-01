@@ -27,12 +27,13 @@ namespace Sycles.GameObjects.TestStuff
             for (int i = 0; i < 200; i++)
             {
                 var a = new SnakeBody($"body{i}", new Texture("snake.png"));
-                a.Scale = new Vector2f(0.075f,0.075f);
+                a.Scale = new Vector2f(0.015f,0.015f);
                 a.LocalPosition = new Vector2f(a.LocalPosition.X, LocalPosition.Y+(i*1.5f));
                 Random r = new Random();
+                a.BlendMode = BlendMode.Alpha;
                 a.SetColor(new Color((byte)r.Next(0,255),(byte)r.Next(0,255),(byte)r.Next(0,255)));
-                a.BlendMode = BlendMode.Add;
-                a.shader.SetUniform( "textureOffset", 0.2f);
+                
+                //a.shader.SetUniform( "textureOffset", 1f/a._sprite.TextureRect.Width);
                 body.Add(a);
             }
             body.First().shader.SetUniform( "textureOffset", 0.1f );

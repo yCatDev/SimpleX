@@ -1,8 +1,6 @@
-﻿using System;
-using SimpleX;
-using Sycles.Scenes.Test;
+﻿using SimpleX;
 
-namespace Sycles
+namespace TestStuff
 {
     class Program
     {

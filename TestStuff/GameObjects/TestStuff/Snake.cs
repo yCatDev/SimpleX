@@ -7,7 +7,7 @@ using SimpleX;
 using SimpleX.Interfaces;
 using SimpleX.Managers;
 
-namespace Sycles.GameObjects.TestStuff
+namespace TestStuff
 {
     public class Snake: IGameObject
     {
@@ -24,9 +24,10 @@ namespace Sycles.GameObjects.TestStuff
         public void Start()
         {
             body = new List<SnakeBody>();
+            var tex = new Texture("snake.png");
             for (int i = 0; i < 200; i++)
             {
-                var a = new SnakeBody($"body{i}", new Texture("snake.png"));
+                var a = new SnakeBody($"body{i}", tex);
                 a.Scale = new Vector2f(0.015f,0.015f);
                 a.LocalPosition = new Vector2f(a.LocalPosition.X, LocalPosition.Y+(i*1.5f));
                 Random r = new Random();

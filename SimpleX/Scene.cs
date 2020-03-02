@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using SFML.Window;
 using SimpleX.Interfaces;
 using SimpleX.Managers;
 
@@ -10,8 +11,8 @@ namespace SimpleX
     {
         private List<IGameObject> GameObjects;
         public string name;
-        
-        public Scene(string name)
+
+        protected Scene(string name)
         {
             this.name = name;
             GameObjects = new List<IGameObject>();
@@ -43,11 +44,11 @@ namespace SimpleX
 
         public List<IGameObject> GetSceneGameObjects() => GameObjects;
 
-        public void RegisterGameObject(IGameObject gameObject)
+        public void RegisterGameObject<T>(ref T gameObject) where T : IGameObject
         {
             gameObject.Start();
             GameObjects.Add(gameObject);
-            
+            gameObject = (T) GameObjects.Last();
         }
 
     }

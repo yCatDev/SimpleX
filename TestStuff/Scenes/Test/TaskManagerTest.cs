@@ -1,14 +1,10 @@
 ﻿using System.Collections;
-using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.System;
 using SimpleX;
 using SimpleX.BasicGameObjects;
-using SimpleX.Coroutines;
-using SimpleX.Managers;
-using Sycles.GameObjects.TestStuff;
 
-namespace Sycles.Scenes.Test
+namespace TestStuff
 {
     public class TaskManagerTest: Scene
     {
@@ -52,8 +48,8 @@ namespace Sycles.Scenes.Test
             var size = Engine.GetInstance().GetWindowSize();
             scene_name.LocalPosition = new Vector2f(-size.X/6, -size.Y/5);
             scene_name.SetColor(Color.White);
-            RegisterGameObject(logo);
-            RegisterGameObject(scene_name);
+            RegisterGameObject(ref logo);
+            RegisterGameObject(ref scene_name);
             Engine.GetInstance().TaskManager.AddTask(Rotate);
             Engine.GetInstance().TaskManager.AddTask(Scale);
             //Core.GetInstance().Camera.SetFollowTarget(logo.GetGlobalPosition());

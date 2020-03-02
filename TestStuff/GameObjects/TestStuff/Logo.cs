@@ -2,7 +2,7 @@
 using SFML.System;
 using SimpleX;
 
-namespace Sycles.GameObjects.TestStuff
+namespace TestStuff
 {
     public class Logo: GameObject
     {

@@ -1,8 +1,7 @@
 ﻿using SimpleX;
 using SimpleX.Interfaces;
-using Sycles.GameObjects.TestStuff;
 
-namespace Sycles.Scenes.Test
+namespace TestStuff
 {
     
     public class TestSnake: Scene
@@ -17,7 +16,7 @@ namespace Sycles.Scenes.Test
         public override void Load()
         {
             snake = new Snake();
-            RegisterGameObject(snake);
+            RegisterGameObject(ref snake);
             base.Load();
         }
     }

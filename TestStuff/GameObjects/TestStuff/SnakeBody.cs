@@ -1,7 +1,7 @@
 ﻿using SFML.Graphics;
 using SimpleX;
 
-namespace Sycles.GameObjects.TestStuff
+namespace TestStuff
 {
     public class SnakeBody: GameObject
     {

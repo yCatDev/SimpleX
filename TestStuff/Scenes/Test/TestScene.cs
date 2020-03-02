@@ -2,10 +2,8 @@
 using SFML.System;
 using SimpleX;
 using SimpleX.BasicGameObjects;
-using SimpleX.Interfaces;
-using Sycles.GameObjects.TestStuff;
 
-namespace Sycles.Scenes.Test
+namespace TestStuff
 {
     public class TestScene: Scene
     {
@@ -32,17 +30,17 @@ namespace Sycles.Scenes.Test
             c3.SetParent(c1);
             c4.SetParent(c2);
             c5.SetParent(c3);
-            RegisterGameObject(scene_name);
-            RegisterGameObject(c0);
-            RegisterGameObject(c1);
-            RegisterGameObject(c2);
-            RegisterGameObject(c3);
-            RegisterGameObject(c4);
-            RegisterGameObject(c5);
+            RegisterGameObject(ref scene_name);
+            RegisterGameObject(ref c0);
+            RegisterGameObject(ref c1);
+            RegisterGameObject(ref c2);
+            RegisterGameObject(ref c3);
+            RegisterGameObject(ref c4);
+            RegisterGameObject(ref c5);
             Engine.GetInstance().Camera.SetFollowTarget(c0.GetGlobalPosition());
             base.Load();
         }
 
-        public TextObject scene_name { get; set; }
+        public TextObject scene_name;
     }
 }

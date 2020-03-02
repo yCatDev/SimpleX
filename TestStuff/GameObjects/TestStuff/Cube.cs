@@ -5,7 +5,7 @@ using SFML.Window;
 using SimpleX;
 using SimpleX.Managers;
 
-namespace Sycles.GameObjects.TestStuff
+namespace TestStuff
 {
     public class Cube: GameObject
     {

@@ -51,8 +51,7 @@ namespace SimpleX.BasicGameObjects
             _text = new Text();
             _text.Font = new Font(fontPath);
 
-            var bounds = _text.GetGlobalBounds();
-            _text.Origin = new Vector2f(bounds.Width/2, bounds.Height/2);
+            UpdateOrigin();
             
             _parent = Engine.GetInstance().World;
             LocalPosition = _text.Position;

@@ -12,9 +12,9 @@ namespace YetAnotherSnake
         static void Main(string[] args)
         {
             var engine = new Engine("Yet Another Snake");
-            engine.SceneManager.LoadScene(GameScene);
-            engine.SceneManager.LoadScene(MenuScene);
-            engine.SceneManager.LoadSceneAndRun(LoadingScene);
+            
+            engine.SceneManager.LoadScene(LoadingScene);
+
             engine.Update();
         }
     }

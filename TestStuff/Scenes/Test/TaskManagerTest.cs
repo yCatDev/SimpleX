@@ -53,7 +53,6 @@ namespace TestStuff
             Engine.GetInstance().TaskManager.AddTask(Rotate);
             Engine.GetInstance().TaskManager.AddTask(Scale);
             //Core.GetInstance().Camera.SetFollowTarget(logo.GetGlobalPosition());
-            base.Load();
         }
 
         public override void Run()

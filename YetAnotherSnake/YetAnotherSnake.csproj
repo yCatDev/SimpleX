@@ -9,8 +9,4 @@
       <ProjectReference Include="..\SimpleX\SimpleX.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="GameObjects" />
-    </ItemGroup>
-
 </Project>

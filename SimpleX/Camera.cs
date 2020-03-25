@@ -14,8 +14,7 @@ namespace SimpleX
             view.Reset(new FloatRect(0.0f, 0.0f, win.Size.X, win.Size.Y));
             view.Viewport = new FloatRect(0.0f, 0.0f, 2.0f, 2.0f);
             view.Center = new Vector2f(win.Size.X*4,win.Size.Y*4);
-            view.Zoom(1.5f);
-            
+
             SetFollowTarget(Engine.GetInstance().World.Position);
         }
 

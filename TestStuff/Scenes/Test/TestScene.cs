@@ -38,7 +38,6 @@ namespace TestStuff
             RegisterGameObject(ref c4);
             RegisterGameObject(ref c5);
             Engine.GetInstance().Camera.SetFollowTarget(c0.GetGlobalPosition());
-            base.Load();
         }
 
         public TextObject scene_name;

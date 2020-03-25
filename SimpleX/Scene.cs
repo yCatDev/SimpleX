@@ -9,25 +9,23 @@ namespace SimpleX
 {
     public abstract class Scene: IScene
     {
-        private List<IGameObject> GameObjects;
+        private List<IGameObject> SceneGameObjects;
         public string name;
+        public bool loaded = false;
 
         protected Scene(string name)
         {
             this.name = name;
-            GameObjects = new List<IGameObject>();
+            SceneGameObjects = new List<IGameObject>();
         }
 
-        
-        public virtual void Load()
-        {
-            
-        }
+
+        public abstract void Load();
 
         public virtual void Unload()
         {
-            Engine.GetInstance().GameObjectManager.UnloadScene(GameObjects.ToArray());
-            GameObjects.Clear();
+            Engine.GetInstance().GameObjectManager.UnloadScene(SceneGameObjects.ToArray());
+            SceneGameObjects.Clear();
         }
 
         public void LoadAndRun()
@@ -38,17 +36,18 @@ namespace SimpleX
 
         public virtual void Run()
         {
+
             Engine.GetInstance().GameObjectManager.UploadScene(this);
             //GameObjects.Clear();
         }
 
-        public List<IGameObject> GetSceneGameObjects() => GameObjects;
+        public List<IGameObject> GetSceneGameObjects() => SceneGameObjects;
 
         public void RegisterGameObject<T>(ref T gameObject) where T : IGameObject
         {
             gameObject.Start();
-            GameObjects.Add(gameObject);
-            gameObject = (T) GameObjects.Last();
+            SceneGameObjects.Add(gameObject);
+            gameObject = (T) SceneGameObjects.Last();
         }
 
     }

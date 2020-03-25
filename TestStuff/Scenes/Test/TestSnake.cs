@@ -17,7 +17,6 @@ namespace TestStuff
         {
             snake = new Snake();
             RegisterGameObject(ref snake);
-            base.Load();
         }
     }
 }

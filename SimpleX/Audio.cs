@@ -16,7 +16,9 @@ namespace SimpleX
             _music = new Music(path);
             _music.Loop = loop;
             this.name = name;
-           // Engine.GetInstance().AudioManager.RegisterAudio(this);
+            Sound s;
+            
+            // Engine.GetInstance().AudioManager.RegisterAudio(this);
         }
 
         public void Play() => _music.Play();
